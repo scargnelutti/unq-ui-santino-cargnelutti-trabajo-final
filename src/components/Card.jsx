@@ -1,9 +1,10 @@
 import React from 'react';
+import "./Card.css"
 
-const Card = ({ content }) => {
+const Card = ({ card, onClick }) => {
   return (
-      <div onClick={() => console.log("Pasé aca")}>
-        {content}
+      <div onClick={onClick}>
+        {card.flipped || card.matched ? card[0] : '?'}
       </div>
   );
 };
