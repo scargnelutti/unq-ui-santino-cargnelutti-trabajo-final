@@ -64,15 +64,16 @@ function App() {
       <main>
         <h1>Memotest</h1>
         <div className="grid">
-          {cards.map((card, index) => (
+          {cards.map((card) => (
               <Card
-                  key={index}
+                  key={card.id}
                   card={card}
                   onClick={() => handleClick(card)}
               />
           ))}
         </div>
         <button onClick={() => setGameOver(true)}>Reiniciar juego</button>
+        {gameOver && <div className="game-over">Juego terminado</div>}
       </main>
   )
 }

@@ -3,8 +3,8 @@ import "./Card.css"
 
 const Card = ({ card, onClick }) => {
   return (
-      <div onClick={onClick}>
-        {card.flipped || card.matched ? card[0] : '?'}
+      <div className="card" onClick={onClick}>
+        {card.flipped || card.matched ? card.emoji : '?'}
       </div>
   );
 };
