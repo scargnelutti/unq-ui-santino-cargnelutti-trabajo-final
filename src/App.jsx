@@ -6,14 +6,17 @@ function App() {
   const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedPairs, setMatchedPairs] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+  const [isOver, setIsOver] = useState(false);
+  const [endGameNotification, setEndGameNotification] = useState(false);
+
 
   useEffect(() => {
     setCards(generateShuffledDeck());
     setFlippedCards([]);
     setMatchedPairs(0);
-    setGameOver(false);
-  }, [gameOver])
+    setIsOver(false);
+    setEndGameNotification(false);
+  }, [isOver])
 
   const generateShuffledDeck = () => {
     const emojis = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼']
@@ -49,7 +52,7 @@ function App() {
       setCards(newCards)
       setMatchedPairs(prev => prev + 1)
       if (matchedPairs + 1 === 8) {
-        setGameOver(true)
+        setEndGameNotification(true);
       }
     } else {
       const newCards = cards.map(card =>
@@ -72,8 +75,8 @@ function App() {
               />
           ))}
         </div>
-        <button onClick={() => setGameOver(true)}>Reiniciar juego</button>
-        {gameOver && <div className="game-over">Juego terminado</div>}
+        <button onClick={() => setIsOver(true)}>Reiniciar juego</button>
+        {endGameNotification && <div className="game-over">Juego terminado</div>}
       </main>
   )
 }
