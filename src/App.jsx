@@ -9,7 +9,6 @@ function App() {
   const [isOver, setIsOver] = useState(false);
   const [endGameNotification, setEndGameNotification] = useState(false);
 
-
   useEffect(() => {
     setCards(generateShuffledDeck());
     setFlippedCards([]);
@@ -81,4 +80,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
