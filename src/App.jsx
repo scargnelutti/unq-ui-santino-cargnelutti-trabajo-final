@@ -127,7 +127,7 @@ function App() {
       {gameOver ? (
           <div className="gameOver">
             <p>Fin</p>
-            <button onClick={handleRestart}>Reiniciar</button>
+            <button className="restartButton" onClick={handleRestart}>Reiniciar</button>
           </div>
       ) : (
           <div className="inputForm">
@@ -140,7 +140,7 @@ function App() {
                   onFocus={handleFocus}
                   autoComplete="off"
               />
-              <button type="submit">Submit</button>
+              <button className="enviarPalabra" type="submit">Enviar</button>
             </form>
           </div>
       )}

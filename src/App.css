@@ -1,6 +1,9 @@
 html, body {
     margin: 0;
     height: 100%;
+    background-color: #f8fafc;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #1e293b;
 }
 
 #root {
@@ -11,26 +14,77 @@ html, body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    gap: 15vh;
     margin: 0 auto;
     flex-grow: 1;
-    padding-top: 16px;
+    padding: 32px 20px 0 20px;
     text-align: center;
+    max-width: 500px;
+    width: 100%;
 }
 
 .info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 8vw;
-
+    align-items: center;
+    gap: 4vw;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 16px
 }
 
-.inputForm {
+.info p {
+    margin: 0;
+    font-weight: 600;
+}
 
+.inputForm form {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+#textInput {
+    flex-grow: 1;
+    max-width: 300px;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    color: #334155;
+    font-weight: 500;
+}
+
+.enviarPalabra, .restartButton {
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    min-height: 44px;
+    padding: 0 24px;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .gameOver {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
 
+.gameOver p {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ef4444;
+}
+
+.restartButton {
+    background-color: #10b981;
 }
 
 .feedback {
@@ -38,15 +92,25 @@ html, body {
 }
 
 .points {
-    width: 70px;
-    text-align: left;
+    /*width: 70px;*/
+    /*text-align: left;*/
+    color: #64748b;
 }
 
 .status {
-    width: 222px;
+    /*width: 222px;*/
+    flex-grow: 1;
+    font-size: 1.25rem;
+    color: #0f172a;
+    letter-spacing: 1px;
 }
 
 .timer {
-    width: 80px;
+    /*width: 120px;*/
     text-align: left;
+    color: #ef4444;
+    background-color: #fef2f2;
+    padding: 6px 12px;
+    border-radius: 20px;
 }
+
