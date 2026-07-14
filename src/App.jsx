@@ -2,6 +2,10 @@ import './App.css'
 import {useEffect, useRef, useState} from "react";
 import {validate} from "./service/word-api-service.jsx";
 
+const cleanInput = (text) => {
+  return text.toLowerCase().normalize("NFD").replace(/(?!\u0303)[\u0300-\u036f]/g, "");
+}
+
 function App() {
   const [input, setInput] = useState('');
   const [gameOver, setGameOver] = useState(false);
@@ -71,7 +75,7 @@ function App() {
   }
 
   const handleChange = (e) => {
-    const currentInput = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const currentInput = cleanInput(e.target.value);
     const lastLetter = currentWord.at(-1);
 
     if (!currentWord || currentInput.startsWith(lastLetter)) {
@@ -102,45 +106,48 @@ function App() {
 
   return (
     <div className="container">
-      <div className="playing">
-        <div className="info">
+      <div className="info">
+        <div className="points">
+          <p>Puntos: {points}</p>
+        </div>
+        <div className="status">
           {currentWord === '' ? (
               <p>Escribí una palabra para comenzar</p>
-            ) : (
-                <p>{currentWord}</p>
-            )}
-          <p>{points}</p>
-        </div>
-
-        {gameOver ? (
-            <div className="game-over">
-              <p>Fin</p>
-              <button onClick={handleRestart}>Reiniciar</button>
-            </div>
-        ) : (
-            <div className="inputForm">
-              <form onSubmit={handleSubmit}>
-                <input
-                    id="textInput"
-                    type="text"
-                    value={input}
-                    onChange={handleChange}
-                    onFocus={handleFocus}
-                    autoComplete="off"
-                />
-                <button type="submit">Submit</button>
-              </form>
-            </div>
-        )}
-        <div className="feedback">
-          {isWrongWord && (<p>No es una palabra válida</p>)}
-          {isWordRepeated && (<p>La palabra ya fue usada</p>)}
+          ) : (
+              <p>{currentWord}</p>
+          )}
         </div>
         <div className="timer">
           <p>
             Tiempo: {timeLeft}s
           </p>
         </div>
+      </div>
+
+      {gameOver ? (
+          <div className="gameOver">
+            <p>Fin</p>
+            <button onClick={handleRestart}>Reiniciar</button>
+          </div>
+      ) : (
+          <div className="inputForm">
+            <form onSubmit={handleSubmit}>
+              <input
+                  id="textInput"
+                  type="text"
+                  value={input}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  autoComplete="off"
+              />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+      )}
+      <div className="feedback">
+        {isWrongWord && (<p>No es una palabra válida</p>)}
+        {isWordRepeated && (<p>La palabra ya fue usada</p>)}
+        <p>texto de prueba</p>
       </div>
     </div>
   )

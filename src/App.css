@@ -13,4 +13,40 @@ html, body {
 .container {
     margin: 0 auto;
     flex-grow: 1;
+    padding-top: 16px;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8vw;
+
+}
+
+.inputForm {
+
+}
+
+.gameOver {
+
+}
+
+.feedback {
+
+}
+
+.points {
+    width: 70px;
+    text-align: left;
+}
+
+.status {
+    width: 222px;
+}
+
+.timer {
+    width: 80px;
+    text-align: left;
 }
