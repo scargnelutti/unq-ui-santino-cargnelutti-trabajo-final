@@ -71,7 +71,7 @@ function App() {
   }
 
   const handleChange = (e) => {
-    const currentInput = e.target.value;
+    const currentInput = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     const lastLetter = currentWord.at(-1);
 
     if (!currentWord || currentInput.startsWith(lastLetter)) {
@@ -85,6 +85,19 @@ function App() {
     if (!isTimerActive && !gameOver) {
       setIsTimerActive(true);
     }
+  };
+
+  const handleRestart = () => {
+    setInput('');
+    setGameOver(false);
+    setCurrentWord('');
+    setIsWrongWord(false);
+    setPoints(0);
+    setUsedWords([]);
+    setIsWordRepeated(false);
+    setTimeLeft(5);
+    setIsTimerActive(false);
+    setResetTrigger(0);
   };
 
   return (
@@ -102,6 +115,7 @@ function App() {
         {gameOver ? (
             <div className="game-over">
               <p>Fin</p>
+              <button onClick={handleRestart}>Reiniciar</button>
             </div>
         ) : (
             <div className="inputForm">
