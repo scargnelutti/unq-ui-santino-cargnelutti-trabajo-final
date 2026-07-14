@@ -33,7 +33,7 @@ html, body {
     gap: 4vw;
     background-color: #ffffff;
     padding: 16px;
-    border-radius: 16px
+    border-radius: 16px;
 }
 
 .info p {
@@ -88,17 +88,21 @@ html, body {
 }
 
 .feedback {
+    min-height: 50px;
+}
 
+.feedback p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
 }
 
 .points {
-    /*width: 70px;*/
-    /*text-align: left;*/
     color: #64748b;
 }
 
 .status {
-    /*width: 222px;*/
     flex-grow: 1;
     font-size: 1.25rem;
     color: #0f172a;
@@ -106,7 +110,6 @@ html, body {
 }
 
 .timer {
-    /*width: 120px;*/
     text-align: left;
     color: #ef4444;
     background-color: #fef2f2;

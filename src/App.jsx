@@ -111,11 +111,7 @@ function App() {
           <p>Puntos: {points}</p>
         </div>
         <div className="status">
-          {currentWord === '' ? (
-              <p>Escribí una palabra para comenzar</p>
-          ) : (
-              <p>{currentWord}</p>
-          )}
+          <p>{currentWord}</p>
         </div>
         <div className="timer">
           <p>
@@ -145,9 +141,9 @@ function App() {
           </div>
       )}
       <div className="feedback">
+        {currentWord === '' && (<p>Escribí una palabra para comenzar</p>)}
         {isWrongWord && (<p>No es una palabra válida</p>)}
         {isWordRepeated && (<p>La palabra ya fue usada</p>)}
-        <p>texto de prueba</p>
       </div>
     </div>
   )
