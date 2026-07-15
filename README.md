@@ -1,16 +1,36 @@
-# React + Vite
+# Palabras encadenadas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Asegurate de tener instalada la siguiente herramienta en tu sistema:
 
-## React Compiler
+- [Node.js](https://nodejs.org/) (versión 24 o superior)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Instalación
 
-## Expanding the ESLint configuration
+### 1. Clonar el repositorio
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Cloná este repositorio en tu máquina local:
+
+```
+git clone https://github.com/scargnelutti/unq-ui-santino-cargnelutti-trabajo-final.git
+```
+
+### 2. Ingresar al directorio
+```
+cd unq-ui-santino-cargnelutti-trabajo-final
+```
+
+### 3. Instalar y ejecutar localmente el proyecto
+
+```
+npm install
+```
+
+```
+npm run dev
+```
+
+### 4. Ingresar al enlace que la terminal provea
+Dicho enlace tendrá esta forma: http://localhost:xxxx, siendo xxxx un número.
