@@ -16,7 +16,7 @@ function App() {
   const [isWordRepeated, setIsWordRepeated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(15);
   const [isTimerActive, setIsTimerActive] = useState(false);
   const [resetTrigger, setResetTrigger] = useState(0);
   const intervalRef = useRef(null);
@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     if (!isTimerActive || gameOver) return;
 
-    setTimeLeft(5);
+    setTimeLeft(15);
     intervalRef.current = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
@@ -99,7 +99,7 @@ function App() {
     setPoints(0);
     setUsedWords([]);
     setIsWordRepeated(false);
-    setTimeLeft(5);
+    setTimeLeft(15);
     setIsTimerActive(false);
     setResetTrigger(0);
     setIsLoading(false);
