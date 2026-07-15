@@ -124,6 +124,10 @@ function App() {
       {gameOver ? (
           <div className="gameOver">
             <p>Fin</p>
+            <div className="gameSummary">
+              <p>Puntaje final: {points}</p>
+              <p>Palabras logradas: {usedWords.length}</p>
+            </div>
             <button className="restartButton" onClick={handleRestart}>Reiniciar</button>
           </div>
       ) : (

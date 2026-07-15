@@ -76,6 +76,17 @@ html, body {
     gap: 16px;
 }
 
+.gameSummary {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #ffffff;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 8px;
+}
+
 .gameOver p {
     margin: 0;
     font-size: 2rem;
