@@ -14,6 +14,7 @@ function App() {
   const [points, setPoints] = useState(0);
   const [usedWords, setUsedWords] = useState([]);
   const [isWordRepeated, setIsWordRepeated] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [timeLeft, setTimeLeft] = useState(5);
   const [isTimerActive, setIsTimerActive] = useState(false);
@@ -46,7 +47,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (gameOver || !input.trim()) {
+    if (gameOver || !input.trim() || isLoading) {
       return;
     }
     if (usedWords.includes(input)) {
@@ -54,6 +55,7 @@ function App() {
       return;
     }
 
+    setIsLoading(true);
     validate(input).then((response) => {
       const { exists } = response.data
       if (exists) {
@@ -61,7 +63,8 @@ function App() {
         setCurrentWord(input);
         setInput(input.at(-1));
         setIsWrongWord(false);
-        setPoints(points + 1);
+        setPoints((prevState) => prevState + input.length);
+        // setPoints(points + input.length);
         setIsWordRepeated(false);
 
         resetTimer();
@@ -71,6 +74,7 @@ function App() {
     }).catch((err) => {
       console.log(err.response);
     }).finally(() => {
+      setIsLoading(false);
     })
   }
 
@@ -102,6 +106,7 @@ function App() {
     setTimeLeft(5);
     setIsTimerActive(false);
     setResetTrigger(0);
+    setIsLoading(false);
   };
 
   return (
@@ -136,7 +141,9 @@ function App() {
                   onFocus={handleFocus}
                   autoComplete="off"
               />
-              <button className="enviarPalabra" type="submit">Enviar</button>
+              <button className="enviarPalabra" type="submit" disabled={isLoading}>
+                Enviar
+              </button>
             </form>
           </div>
       )}
