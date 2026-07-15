@@ -64,9 +64,11 @@ function App() {
         setInput(input.at(-1));
         setIsWrongWord(false);
         setPoints((prevState) => prevState + input.length);
-        // setPoints(points + input.length);
         setIsWordRepeated(false);
 
+        if (!isTimerActive) {
+          setIsTimerActive(true);
+        }
         resetTimer();
       } else {
         setIsWrongWord(true);
@@ -86,12 +88,6 @@ function App() {
       setInput(currentInput);
     } else {
       setInput(lastLetter);
-    }
-  };
-
-  const handleFocus = () => {
-    if (!isTimerActive && !gameOver) {
-      setIsTimerActive(true);
     }
   };
 
@@ -138,7 +134,6 @@ function App() {
                   type="text"
                   value={input}
                   onChange={handleChange}
-                  onFocus={handleFocus}
                   autoComplete="off"
               />
               <button className="enviarPalabra" type="submit" disabled={isLoading}>
@@ -151,6 +146,19 @@ function App() {
         {currentWord === '' && (<p>Escribí una palabra para comenzar</p>)}
         {isWrongWord && (<p>No es una palabra válida</p>)}
         {isWordRepeated && (<p>La palabra ya fue usada</p>)}
+        {usedWords.length > 0 && (
+            <div className="historyContainer">
+              <p className="historyTitle">PALABRAS USADAS</p>
+              <div className="historyList">
+                {usedWords.map((word, index) => (
+                    <span key={index} className="historyWord">
+                {word}
+                      {index < usedWords.length - 1 && <span className="arrow">➔</span>}
+              </span>
+                ))}
+              </div>
+            </div>
+        )}
       </div>
     </div>
   )
